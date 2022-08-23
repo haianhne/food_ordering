@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://127.0.0.1:3306/food_order_db"
+        userId="root"
+        password="12345678">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.n37.foodordering.model" targetProject="foodordering"/>
+
+    <sqlMapGenerator targetPackage="com.n37.foodordering.mapper.sql"  targetProject="foodordering/src/main/resources"/>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.n37.foodordering.mapper"  targetProject="foodordering"/>
+    
+    <table tableName="user" domainObjectName="User" >
+      
+    </table>
+
+  </context>
+</generatorConfiguration>
