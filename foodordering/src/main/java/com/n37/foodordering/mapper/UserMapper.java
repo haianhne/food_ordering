@@ -5,8 +5,11 @@ import com.n37.foodordering.model.UserExample;
 import com.n37.foodordering.model.UserKey;
 import com.n37.foodordering.model.UserWithBLOBs;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface UserMapper {
 
 	/**
@@ -50,4 +53,7 @@ public interface UserMapper {
 	 * @mbg.generated  Tue Aug 23 12:02:14 ICT 2022
 	 */
 	int updateByExample(@Param("row") User row, @Param("example") UserExample example);
+	
+	List<User> getAllUser();
+	
 }
