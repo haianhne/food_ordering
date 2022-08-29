@@ -29,14 +29,12 @@ public class SercurityConfig {
 			.formLogin(form -> form
 				.loginPage("/login")
 				.permitAll()
-				.defaultSuccessUrl("/login?success=true")
+				.defaultSuccessUrl("/admin")
 				.failureUrl("/login?success=fail")
 				.loginProcessingUrl("/j_spring_security_check")
 			)
 			.authorizeHttpRequests()
-		 	.antMatchers("/admin").hasRole("ADMIN")
-		 	.antMatchers("/home").hasAnyRole("ADMIN", "USER", "RESTAURANT")
-		 	.antMatchers("/login").permitAll()
+		 	.antMatchers("/admin").hasAnyRole("ADMIN", "RESTAURANT")
 		 	.antMatchers("/").permitAll()
 		 	;
 		return http.build();

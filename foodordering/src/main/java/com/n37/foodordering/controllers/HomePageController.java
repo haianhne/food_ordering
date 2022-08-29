@@ -20,7 +20,6 @@ public class HomePageController {
 	@GetMapping("/")
 	public ModelAndView basePage() {
 		ModelAndView modelAndView = new ModelAndView("index");
-		
 		return modelAndView;
 		
 	}
@@ -43,16 +42,5 @@ public class HomePageController {
 		return modelAndView;
 		
 	}
-	
-	@GetMapping("/home")
-	public ModelAndView home() {
-		ModelAndView modelAndView = new ModelAndView("home");
-		
-		return modelAndView;
-		
-	}
-	
-	
-	
 	
 }
