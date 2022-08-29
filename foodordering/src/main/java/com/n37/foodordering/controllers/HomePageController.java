@@ -52,13 +52,7 @@ public class HomePageController {
 		
 	}
 	
-	@GetMapping("/admin")
-	public ModelAndView admin() {
-		ModelAndView modelAndView = new ModelAndView("admin");
-		
-		return modelAndView;
-		
-	}
+	
 	
 	
 }
