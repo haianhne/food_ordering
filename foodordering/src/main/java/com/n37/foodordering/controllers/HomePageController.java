@@ -17,9 +17,17 @@ public class HomePageController {
 	@Autowired
 	UserMapper userMapper;
 	
+	@GetMapping("/")
+	public ModelAndView basePage() {
+		ModelAndView modelAndView = new ModelAndView("index");
+		
+		return modelAndView;
+		
+	}
+	
 	@GetMapping("/login")
 	public ModelAndView index() {
-		ModelAndView modelAndView = new ModelAndView("index");
+		ModelAndView modelAndView = new ModelAndView("login");
 		
 //		UserExample example= new UserExample();
 //		
@@ -43,4 +51,14 @@ public class HomePageController {
 		return modelAndView;
 		
 	}
+	
+	@GetMapping("/admin")
+	public ModelAndView admin() {
+		ModelAndView modelAndView = new ModelAndView("admin");
+		
+		return modelAndView;
+		
+	}
+	
+	
 }
