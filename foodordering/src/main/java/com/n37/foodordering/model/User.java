@@ -5,23 +5,33 @@ import java.util.Date;
 public class User {
 
 	
-	private Long id;
-	private String fullName;
-	private String userName;
-	private String userPassword;
-	private String email;
-	private String phone;
-
+	private Integer id;
 	
-	public Long getId() {
+	private String fullName;
+	
+	private String userName;
+	
+	private String userPassword;
+	
+	private String email;
+	
+	private String phone;
+	
+	private String userole;
+	
+	private String avatar;
+	
+	private Boolean isActive;
+
+	public Integer getId() {
 		return id;
 	}
 
-	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	
 	public String getFullName() {
 		return fullName;
 	}
@@ -40,6 +50,7 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
 
 	public String getUserPassword() {
 		return userPassword;
@@ -68,5 +79,35 @@ public class User {
 	
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	
+	public String getUserole() {
+		return userole;
+	}
+
+	
+	public void setUserole(String userole) {
+		this.userole = userole;
+	}
+
+	
+	public String getAvatar() {
+		return avatar;
+	}
+
+	
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 }

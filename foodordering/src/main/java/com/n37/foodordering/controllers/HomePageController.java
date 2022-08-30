@@ -11,34 +11,29 @@ import com.n37.foodordering.mapper.UserMapper;
 import com.n37.foodordering.model.User;
 import com.n37.foodordering.model.UserExample;
 
+
+
 @Controller
 public class HomePageController {
 	
-	@Autowired
-	UserMapper userMapper;
+	@Autowired UserMapper userMapper;
 	
 	@GetMapping("/")
 	public ModelAndView basePage() {
 		ModelAndView modelAndView = new ModelAndView("index");
+		UserExample example= new UserExample();
+		List<User> listUser = userMapper.selectByExample(example);
+		System.out.println("Kiem tra + " + listUser.size());
+		
 		return modelAndView;
+		
+		
 		
 	}
 	
 	@GetMapping("/login")
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView("login");
-		
-//		UserExample example= new UserExample();
-//		
-//		example.createCriteria().andIdEqualTo((long) 1);
-//
-//		
-//		List<User> listUsers = userMapper.selectByExample(example);
-//		
-//		for(User value: listUsers) {
-//			System.out.println("Kiem Tra " + value.getFullName());
-//		}
-		
 		return modelAndView;
 		
 	}

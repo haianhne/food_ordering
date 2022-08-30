@@ -25,6 +25,35 @@
     <table tableName="user" domainObjectName="User" >
       
     </table>
+    
+    <table tableName="customer" domainObjectName="Customer" >
+      
+    </table>
+    
+    <table tableName="restaurant" domainObjectName="Restaurant" >
+      
+    </table>
+    
+    <table tableName="food" domainObjectName="Food" >
+      
+    </table>
+    
+    <table tableName="food_order" domainObjectName="Food_order" >
+      
+    </table>
+    
+    <table tableName="food_order_detail" domainObjectName="Food_order_detail" >
+      
+    </table>
+    
+    <table tableName="menu" domainObjectName="Menu" >
+      
+    </table>
+    
+    <table tableName="comment" domainObjectName="Comment" >
+      
+    </table>
+    
 
   </context>
 </generatorConfiguration>

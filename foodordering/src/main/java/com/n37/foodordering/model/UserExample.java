@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class UserExample {
-   
+    
 	protected String orderByClause;
 	
 	protected boolean distinct;
@@ -32,7 +32,6 @@ public class UserExample {
 		this.distinct = distinct;
 	}
 
-
 	public boolean isDistinct() {
 		return distinct;
 	}
@@ -42,7 +41,6 @@ public class UserExample {
 		return oredCriteria;
 	}
 
-	
 	public void or(Criteria criteria) {
 		oredCriteria.add(criteria);
 	}
@@ -128,52 +126,52 @@ public class UserExample {
 			return (Criteria) this;
 		}
 
-		public Criteria andIdEqualTo(Long value) {
+		public Criteria andIdEqualTo(Integer value) {
 			addCriterion("id =", value, "id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotEqualTo(Long value) {
+		public Criteria andIdNotEqualTo(Integer value) {
 			addCriterion("id <>", value, "id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThan(Long value) {
+		public Criteria andIdGreaterThan(Integer value) {
 			addCriterion("id >", value, "id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThanOrEqualTo(Long value) {
+		public Criteria andIdGreaterThanOrEqualTo(Integer value) {
 			addCriterion("id >=", value, "id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThan(Long value) {
+		public Criteria andIdLessThan(Integer value) {
 			addCriterion("id <", value, "id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThanOrEqualTo(Long value) {
+		public Criteria andIdLessThanOrEqualTo(Integer value) {
 			addCriterion("id <=", value, "id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdIn(List<Long> values) {
+		public Criteria andIdIn(List<Integer> values) {
 			addCriterion("id in", values, "id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotIn(List<Long> values) {
+		public Criteria andIdNotIn(List<Integer> values) {
 			addCriterion("id not in", values, "id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdBetween(Long value1, Long value2) {
+		public Criteria andIdBetween(Integer value1, Integer value2) {
 			addCriterion("id between", value1, value2, "id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotBetween(Long value1, Long value2) {
+		public Criteria andIdNotBetween(Integer value1, Integer value2) {
 			addCriterion("id not between", value1, value2, "id");
 			return (Criteria) this;
 		}
@@ -527,9 +525,212 @@ public class UserExample {
 			addCriterion("phone not between", value1, value2, "phone");
 			return (Criteria) this;
 		}
+
+		public Criteria andUseroleIsNull() {
+			addCriterion("useRole is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleIsNotNull() {
+			addCriterion("useRole is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleEqualTo(String value) {
+			addCriterion("useRole =", value, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleNotEqualTo(String value) {
+			addCriterion("useRole <>", value, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleGreaterThan(String value) {
+			addCriterion("useRole >", value, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleGreaterThanOrEqualTo(String value) {
+			addCriterion("useRole >=", value, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleLessThan(String value) {
+			addCriterion("useRole <", value, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleLessThanOrEqualTo(String value) {
+			addCriterion("useRole <=", value, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleLike(String value) {
+			addCriterion("useRole like", value, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleNotLike(String value) {
+			addCriterion("useRole not like", value, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleIn(List<String> values) {
+			addCriterion("useRole in", values, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleNotIn(List<String> values) {
+			addCriterion("useRole not in", values, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleBetween(String value1, String value2) {
+			addCriterion("useRole between", value1, value2, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andUseroleNotBetween(String value1, String value2) {
+			addCriterion("useRole not between", value1, value2, "userole");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarIsNull() {
+			addCriterion("avatar is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarIsNotNull() {
+			addCriterion("avatar is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarEqualTo(String value) {
+			addCriterion("avatar =", value, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarNotEqualTo(String value) {
+			addCriterion("avatar <>", value, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarGreaterThan(String value) {
+			addCriterion("avatar >", value, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarGreaterThanOrEqualTo(String value) {
+			addCriterion("avatar >=", value, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarLessThan(String value) {
+			addCriterion("avatar <", value, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarLessThanOrEqualTo(String value) {
+			addCriterion("avatar <=", value, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarLike(String value) {
+			addCriterion("avatar like", value, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarNotLike(String value) {
+			addCriterion("avatar not like", value, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarIn(List<String> values) {
+			addCriterion("avatar in", values, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarNotIn(List<String> values) {
+			addCriterion("avatar not in", values, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarBetween(String value1, String value2) {
+			addCriterion("avatar between", value1, value2, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andAvatarNotBetween(String value1, String value2) {
+			addCriterion("avatar not between", value1, value2, "avatar");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveIsNull() {
+			addCriterion("is_active is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveIsNotNull() {
+			addCriterion("is_active is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveEqualTo(Boolean value) {
+			addCriterion("is_active =", value, "isActive");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveNotEqualTo(Boolean value) {
+			addCriterion("is_active <>", value, "isActive");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveGreaterThan(Boolean value) {
+			addCriterion("is_active >", value, "isActive");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveGreaterThanOrEqualTo(Boolean value) {
+			addCriterion("is_active >=", value, "isActive");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveLessThan(Boolean value) {
+			addCriterion("is_active <", value, "isActive");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveLessThanOrEqualTo(Boolean value) {
+			addCriterion("is_active <=", value, "isActive");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveIn(List<Boolean> values) {
+			addCriterion("is_active in", values, "isActive");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveNotIn(List<Boolean> values) {
+			addCriterion("is_active not in", values, "isActive");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveBetween(Boolean value1, Boolean value2) {
+			addCriterion("is_active between", value1, value2, "isActive");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsActiveNotBetween(Boolean value1, Boolean value2) {
+			addCriterion("is_active not between", value1, value2, "isActive");
+			return (Criteria) this;
+		}
 	}
 
-	
+	/**
+	 * This class was generated by MyBatis Generator. This class corresponds to the database table user
+	 * @mbg.generated  Tue Aug 30 17:16:15 ICT 2022
+	 */
 	public static class Criterion {
 		private String condition;
 		private Object value;
@@ -613,7 +814,7 @@ public class UserExample {
      * This class was generated by MyBatis Generator.
      * This class corresponds to the database table user
      *
-     * @mbg.generated do_not_delete_during_merge Tue Aug 23 12:02:14 ICT 2022
+     * @mbg.generated do_not_delete_during_merge Tue Aug 30 17:16:15 ICT 2022
      */
     public static class Criteria extends GeneratedCriteria {
         protected Criteria() {
