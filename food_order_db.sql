@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: food_ordering
+-- Host: 127.0.0.1    Database: food_order_db
 -- ------------------------------------------------------
 -- Server version	8.0.28
 
@@ -236,7 +236,7 @@ CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `full_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `user_password` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `user_password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `phone` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `useRole` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -244,7 +244,7 @@ CREATE TABLE `user` (
   `is_active` bit(1) DEFAULT b'1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name_UNIQUE` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -253,7 +253,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Nguyen Trong Nhan','Wingles','46464564564','1951052140nhan@ou.edu.vn','0877978865','ROLE_ADMIN','https://i.pinimg.com/564x/a7/e0/ea/a7e0eaa86177194cf7d9a28e8685244a.jpg',_binary ''),(2,'Nguyen Thi A','Whero','1443542342','12314343412A@ou.edu.vn','0788757463','ROLE_USER','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(3,'Nguyễn Quang Minh','Celebrity','53654523423','nguyenquangminh@gmail.com','0797865756','ROLE_USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary ''),(4,'Nguyen Thi Minh Khai','NTMK','gretwrwerw','134234Khai@ou.edu.vn','0877856545','ROLE_USER','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '');
+INSERT INTO `user` VALUES (1,'Nguyen Trong Nhan','admin','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','1951052140nhan@ou.edu.vn','0877978865','ADMIN','https://i.pinimg.com/564x/a7/e0/ea/a7e0eaa86177194cf7d9a28e8685244a.jpg',_binary ''),(2,'Nguyen Thi An','user1','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','12314343412A@ou.edu.vn','0788757463','USER','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(3,'Nguyen Quang Minh','user2','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','nguyenquangminh@gmail.com','0797865756','USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary ''),(4,'Nguyen Thi Minh Khai','restaurant1','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','minhkhaii@gmail.com','0877856545','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(5,'Tran Thi Thu','restaurant2','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','thutran@gmail.com','0123456789','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -266,4 +266,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-30 10:14:23
+-- Dump completed on 2022-08-30 10:21:07
