@@ -7,7 +7,7 @@
 #Setup Environment
  - Clone Project
  - JDK 17
- - MySQL
+ - Import database
  - Eclipse IDE for Enterprise Java and Web Developers: https://www.eclipse.org/downloads/packages/
  - Install, open and go Help -> Eclipse MarketPlace -> Install Spring Tool 4, MyBatis Generator
  - Run Project by Spring Boot App
