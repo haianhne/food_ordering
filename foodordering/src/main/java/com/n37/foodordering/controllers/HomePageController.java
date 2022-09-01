@@ -27,8 +27,6 @@ public class HomePageController {
 		
 		return modelAndView;
 		
-		
-		
 	}
 	
 	@GetMapping("/login")

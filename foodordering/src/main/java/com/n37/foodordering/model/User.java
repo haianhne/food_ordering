@@ -17,16 +17,18 @@ public class User {
 	
 	private String phone;
 	
-	private String userole;
+	private String userRole;
 	
 	private String avatar;
 	
 	private Boolean isActive;
 
+	
 	public Integer getId() {
 		return id;
 	}
 
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -51,7 +53,7 @@ public class User {
 		this.userName = userName;
 	}
 
-
+	
 	public String getUserPassword() {
 		return userPassword;
 	}
@@ -82,13 +84,13 @@ public class User {
 	}
 
 	
-	public String getUserole() {
-		return userole;
+	public String getUserRole() {
+		return userRole;
 	}
 
 	
-	public void setUserole(String userole) {
-		this.userole = userole;
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
 	}
 
 	
