@@ -60,7 +60,7 @@ CREATE TABLE `customer` (
   `phone` int NOT NULL,
   `address` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'Hằng','Nguyễn Trương Kim ','HangNguyenTruong@gmail.com',979868685,'77,Hoàng Diệu 2, Linh Trung, Thủ Dức '),(2,'Bình','Chắng Lý','Binhchangly@gmail.com',975464456,'93, Dân Chủ, Bình Thọ, Thủ Đức');
+INSERT INTO `customer` VALUES (1,'Hằng','Nguyễn Trương Kim ','HangNguyenTruong@gmail.com',979868685,'77,Hoàng Diệu 2, Linh Trung, Thủ Dức '),(2,'Bình','Chắng Lý','Binhchangly@gmail.com',975464456,'93, Dân Chủ, Bình Thọ, Thủ Đức'),(3,'Minh','Đỗ Văn','Minh3432425@gmail.com',878675756,'Thái Bình'),(4,'Hậu','Hoàng Thái','Hauhoang342@gmail.com',897678565,'Bình Định');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,18 +83,17 @@ DROP TABLE IF EXISTS `food`;
 CREATE TABLE `food` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quantity` int DEFAULT NULL,
-  `orderDetail_id` int NOT NULL,
-  `decription` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `upload_time` datetime DEFAULT NULL,
+  `decription` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sell_time` datetime DEFAULT NULL,
   `unit_price` decimal(10,0) DEFAULT '0',
-  `created_date` datetime NOT NULL,
-  `status` bit(1) NOT NULL DEFAULT b'1',
+  `status` tinyint NOT NULL,
+  `category` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `restaurant_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_food_orderDetail_idx` (`orderDetail_id`),
-  CONSTRAINT `fk_food_orderDetail` FOREIGN KEY (`orderDetail_id`) REFERENCES `food_order_detail` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `fk_food_restaurant_idx` (`restaurant_id`),
+  CONSTRAINT `fk_food_restaurant` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,6 +102,7 @@ CREATE TABLE `food` (
 
 LOCK TABLES `food` WRITE;
 /*!40000 ALTER TABLE `food` DISABLE KEYS */;
+INSERT INTO `food` VALUES (1,'Bún bò Huế','2021-08-30 00:00:00','Ngon','https://trivietphat.net/wp-content/uploads/2021/08/bun-bo-1.jpg',45000,1,'Bún',5);
 /*!40000 ALTER TABLE `food` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,7 +126,7 @@ CREATE TABLE `food_order` (
   KEY `fk_foodorder_restaurant_idx` (`redtaurant_id`),
   CONSTRAINT `fk_foodorder_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
   CONSTRAINT `fk_foodorder_restaurant` FOREIGN KEY (`redtaurant_id`) REFERENCES `restaurant` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,6 +135,7 @@ CREATE TABLE `food_order` (
 
 LOCK TABLES `food_order` WRITE;
 /*!40000 ALTER TABLE `food_order` DISABLE KEYS */;
+INSERT INTO `food_order` VALUES (1,3,'2022-02-08 00:00:00','MoMo',1,1,_binary ''),(2,1,'2022-07-01 00:00:00','Zalo Pay',2,1,_binary ''),(3,4,'2021-03-06 00:00:00','Shopee Pay',3,2,_binary '');
 /*!40000 ALTER TABLE `food_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,12 +151,16 @@ CREATE TABLE `food_order_detail` (
   `total_price` decimal(10,0) NOT NULL,
   `ship_price` decimal(10,0) NOT NULL,
   `created_date` datetime DEFAULT NULL,
-  `order_id` int NOT NULL,
+  `sell_time` datetime DEFAULT NULL,
   `food_quantity` int DEFAULT NULL,
+  `order_id` int NOT NULL,
+  `food_id` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id_UNIQUE` (`order_id`),
-  CONSTRAINT `fk_bill_foodorder` FOREIGN KEY (`order_id`) REFERENCES `food_order` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  KEY `fk_orderDetail_food_idx` (`food_id`),
+  CONSTRAINT `fk_orderDetail_food` FOREIGN KEY (`food_id`) REFERENCES `food` (`id`),
+  CONSTRAINT `fk_orderDetail_foodorder` FOREIGN KEY (`order_id`) REFERENCES `food_order` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,6 +169,7 @@ CREATE TABLE `food_order_detail` (
 
 LOCK TABLES `food_order_detail` WRITE;
 /*!40000 ALTER TABLE `food_order_detail` DISABLE KEYS */;
+INSERT INTO `food_order_detail` VALUES (1,90000,15000,'2021-06-12 00:00:00','2021-07-23 00:00:00',2,1,1);
 /*!40000 ALTER TABLE `food_order_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +219,7 @@ CREATE TABLE `restaurant` (
   PRIMARY KEY (`id`),
   KEY `fk_restaurant_user_idx` (`user_id`),
   CONSTRAINT `fk_restaurant_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,6 +228,7 @@ CREATE TABLE `restaurant` (
 
 LOCK TABLES `restaurant` WRITE;
 /*!40000 ALTER TABLE `restaurant` DISABLE KEYS */;
+INSERT INTO `restaurant` VALUES (1,'Cơm gà Ngon',1,'2022-02-02 00:00:00','Gà ăn vô tư','https://vntopfood.com/wp-content/uploads/2022/07/com-ga-Phu-Quoc.jpg'),(2,'Cơm tấm Phúc Lộc Thọ',2,'2022-01-01 00:00:00','Quán nướng thịt ngon','https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2021/2/19/photo1613668692054-1613668692418416660680-16136687715501020583665.jpg'),(3,'Bún chả cá Hoàng',3,'2022-03-03 00:00:00','Bún tươi, chả cá ngon','https://cdn.cet.edu.vn/wp-content/uploads/2018/09/bun-cha-ca-nha-trang.jpg'),(4,'Bánh mì heo quay Hà',4,'2022-04-04 00:00:00','Thịt heo giòn','https://cdn.tgdd.vn/Files/2021/09/06/1380700/cach-lam-banh-mi-heo-quay-thom-ngon-cho-bua-sang-dinh-duong-202201110134135409.jpg'),(5,'Bún bò Huế Bà Mười',5,'2021-12-08 00:00:00','Bún bò chuẩn Huế','https://file.hstatic.net/200000395159/article/nau-bun-bo-hue-chuan-vi-tai-nha-voi-cot-co-dac-quoc-viet-foods_59b7ba1543004e67967af718d8afc32b.jpg');
 /*!40000 ALTER TABLE `restaurant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,7 +246,7 @@ CREATE TABLE `user` (
   `user_password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `phone` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `useRole` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_role` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_active` bit(1) DEFAULT b'1',
   PRIMARY KEY (`id`),
@@ -253,7 +260,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Nguyen Trong Nhan','admin','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','1951052140nhan@ou.edu.vn','0877978865','ADMIN','https://i.pinimg.com/564x/a7/e0/ea/a7e0eaa86177194cf7d9a28e8685244a.jpg',_binary ''),(2,'Nguyen Thi An','user1','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','12314343412A@ou.edu.vn','0788757463','USER','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(3,'Nguyen Quang Minh','user2','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','nguyenquangminh@gmail.com','0797865756','USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary ''),(4,'Nguyen Thi Minh Khai','restaurant1','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','minhkhaii@gmail.com','0877856545','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(5,'Tran Thi Thu','restaurant2','{bcrypt}$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','thutran@gmail.com','0123456789','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '');
+INSERT INTO `user` VALUES (1,'Nguyen Trong Nhan','admin','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','1951052140nhan@ou.edu.vn','0877978865','ADMIN','https://i.pinimg.com/564x/a7/e0/ea/a7e0eaa86177194cf7d9a28e8685244a.jpg',_binary ''),(2,'Nguyen Thi An','user1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','12314343412A@ou.edu.vn','0788757463','USER','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(3,'Nguyen Quang Minh','user2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','nguyenquangminh@gmail.com','0797865756','USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary ''),(4,'Nguyen Thi Minh Khai','restaurant1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','minhkhaii@gmail.com','0877856545','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(5,'Tran Thi Thu','restaurant2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','thutran@gmail.com','0123456789','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -266,4 +273,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-30 10:21:07
+-- Dump completed on 2022-09-01 18:50:03
