@@ -12,7 +12,7 @@ details, include responsive
  - use Spring Boot for backend 
  - Thymeleaf for View 
  - Database MySQL 
- - Use MyBatis for Generator (BETTER THAN Hirbernated)
+ - Use MyBatis for Generator (faster THAN Hibernated)
  
  
 
