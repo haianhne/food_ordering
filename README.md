@@ -9,8 +9,8 @@ details, include responsive
  - Find, sort, add, delete product
 
 # Technologies used
- - use Spring Boot for backend 
- - Thymeleaf for View 
+ - use Spring Boot, Spring Security
+ - Thymeleaf 
  - Database MySQL 
  - Use MyBatis for Generator (faster THAN Hibernated)
  
