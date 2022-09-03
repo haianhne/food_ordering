@@ -46,6 +46,7 @@ public class SercurityConfig {
 			.authorizeHttpRequests()
 		 	.antMatchers("/admin/**").hasAnyAuthority("ADMIN", "RESTAURANT")
 		 	.antMatchers("/").permitAll()
+		 	.antMatchers("/registration")
 		 	;
 		return http.build();
 	     

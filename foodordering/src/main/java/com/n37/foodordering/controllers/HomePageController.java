@@ -28,12 +28,4 @@ public class HomePageController {
 		return modelAndView;
 		
 	}
-	
-	@GetMapping("/login")
-	public ModelAndView index() {
-		ModelAndView modelAndView = new ModelAndView("login");
-		return modelAndView;
-		
-	}
-	
 }
