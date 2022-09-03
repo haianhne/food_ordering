@@ -59,30 +59,6 @@ public class SercurityConfig {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(customUserDetailService).passwordEncoder(passwordEncoder());
 	}
-//	@Bean
-//	public UserDetailsService userDetailsService() {
-//
-//	final User.UserBuilder userBuilder = User.builder();
-//	UserDetails user = userBuilder
-//	.username("user")
-//	.password("$2a$10$LSRtafm7G18bebaAYfgUnetAH7m/T24ZAGdFQb34KBRR/LOIQkwtC")
-//	.roles("USER")
-//	.build();
-//
-//	UserDetails admin = userBuilder
-//	.username("admin")
-//	.password("$2a$10$LSRtafm7G18bebaAYfgUnetAH7m/T24ZAGdFQb34KBRR/LOIQkwtC")
-//	.roles("USER","ADMIN")
-//	.build();
-//	
-//	UserDetails restaurant = userBuilder
-//	.username("restaurant")
-//	.password("$2a$10$LSRtafm7G18bebaAYfgUnetAH7m/T24ZAGdFQb34KBRR/LOIQkwtC")
-//	.roles("USER","RESTAURANT")
-//	.build();
-//
-//	return new InMemoryUserDetailsManager(user, admin, restaurant);
-//	}
 		
 }
 
