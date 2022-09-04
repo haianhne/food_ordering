@@ -9,9 +9,7 @@ import com.n37.foodordering.model.User;
 @Controller
 public class LoginController {
 	@GetMapping("/login")
-	public ModelAndView index() {
-		ModelAndView modelAndView = new ModelAndView("login");
-		return modelAndView;
-		
+	public String getLoginForm() { 
+		return "login";
 	}
 }

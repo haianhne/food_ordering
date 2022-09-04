@@ -46,14 +46,14 @@ public class SercurityConfig {
 			.authorizeHttpRequests()
 		 	.antMatchers("/admin/**").hasAnyAuthority("ADMIN", "RESTAURANT")
 		 	.antMatchers("/").permitAll()
-		 	.antMatchers("/registration")
 		 	;
 		return http.build();
 	     
 	}     
 	@Bean
 	public WebSecurityCustomizer webSecurityCustomizer() {
-		return (web) -> web.ignoring().antMatchers("/css/**","/fonts/**","/images/**","/js/**","/vendor/**","/scss/**");
+		return (web) -> web.ignoring().antMatchers("/css/**","/fonts/**","/images/**","/js/**","/vendor/**","/scss/**",
+				"/registration","/fooddetail" );
 	}
 	
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
