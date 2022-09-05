@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.n37.foodordering.service.CustomUserDetailService;
@@ -35,21 +36,30 @@ public class SercurityConfig {
 	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http
-			.formLogin(form -> form
+		http.csrf().disable()
+			.authorizeHttpRequests()
+		 	.antMatchers("/admin/**").hasAnyAuthority("ADMIN", "RESTAURANT")
+		 	.antMatchers("/").permitAll()
+		 	.and()
+		 	.formLogin(form -> form
 				.loginPage("/login")
 				.permitAll()
 				.defaultSuccessUrl("/")
 				.failureUrl("/login?success=fail")
 				.loginProcessingUrl("/j_spring_security_check")
 			)
-			.authorizeHttpRequests()
-		 	.antMatchers("/admin/**").hasAnyAuthority("ADMIN", "RESTAURANT")
-		 	.antMatchers("/").permitAll()
+		 	.logout(logout -> logout
+		 			.clearAuthentication(true)
+		 			.invalidateHttpSession(false)
+		 			.logoutUrl("/logout")
+		 			.logoutSuccessUrl("/login")
+		 	)
 		 	;
 		return http.build();
 	     
-	}     
+	}    
+	
+	
 	@Bean
 	public WebSecurityCustomizer webSecurityCustomizer() {
 		return (web) -> web.ignoring().antMatchers("/css/**","/fonts/**","/images/**","/js/**","/vendor/**","/scss/**",

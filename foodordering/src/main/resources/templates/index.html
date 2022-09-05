@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmln:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmln:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -49,27 +49,27 @@
           <li><a href="#menu">Menu</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="#chefs">Restaurant</a></li>
-          <!--
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="#contact">Contact</a></li>
+     
+          <li class="dropdown"><a href="#"><span>Account Manager</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <li sec:authorize="isAnonymous()"><a th:href="@{login}">Login</a></li>
+                  <li sec:authorize="isAnonymous()"><a th:href="@{registration}">Register</a></li>
+                  <li sec:authorize="isAuthenticated()" th:action="@{/logout}" menthod="POST"><a th:href="@{logout}">Logout</a></li>
+                  <li sec:authorize="hasAuthority('USER')"><a href="#">Hello User</a></li>
+                  <li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{admin}">Hello Admin</a></li>
                 </ul>
               </li>
+              <!--
               <li><a href="#">Drop Down 2</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> -->
-          <li><a href="#contact">Contact</a></li>
-          <li><a th:href="@{login}">Login</a></li>
-          <a th:href="@{registration}">Register</a>
+         
+        
+         
+    
         </ul>
      
       </nav><!-- .navbar -->
@@ -418,7 +418,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $5.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -429,7 +429,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $14.95
+                 49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -440,7 +440,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $8.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -451,7 +451,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $12.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -462,7 +462,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $12.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -473,7 +473,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $9.95
+                49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -496,7 +496,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $5.95
+                 49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -507,7 +507,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $14.95
+                 49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -518,7 +518,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $8.95
+                 49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -529,7 +529,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $12.95
+                 49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -540,7 +540,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $12.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -551,7 +551,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $9.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -574,7 +574,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $5.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -585,7 +585,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $14.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -596,7 +596,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $8.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -607,7 +607,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $12.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -618,7 +618,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $12.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -629,7 +629,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $9.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -652,7 +652,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $5.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -663,7 +663,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $14.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -674,7 +674,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $8.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -685,7 +685,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $12.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -696,7 +696,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $12.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
@@ -707,7 +707,7 @@
                   Lorem, deren, trataro, filede, nerada
                 </p>
                 <p class="price">
-                  $9.95
+                  49.000 VNĐ
                 </p>
               </div><!-- Menu Item -->
 
