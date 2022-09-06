@@ -10,7 +10,7 @@
     <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
   </resultMap>
   <sql id="Example_Where_Clause">
-    
+   
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -40,7 +40,7 @@
     </where>
   </sql>
   <sql id="Update_By_Example_Where_Clause">
-   
+    
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -70,11 +70,11 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-   
+    
     id, content, food_id, user_id, created_date
   </sql>
   <select id="selectByExample" parameterType="com.n37.foodordering.model.CommentExample" resultMap="BaseResultMap">
-   
+    
     select
     <if test="distinct">
       distinct
@@ -96,7 +96,7 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    
+   
     delete from comment
     where id = #{id,jdbcType=INTEGER}
   </delete>
@@ -115,7 +115,7 @@
       #{userId,jdbcType=INTEGER}, #{createdDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.n37.foodordering.model.Comment">
-   
+    
     insert into comment
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -160,7 +160,7 @@
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    
+   
     update comment
     <set>
       <if test="row.id != null">
@@ -196,7 +196,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.n37.foodordering.model.Comment">
-    
+   
     update comment
     <set>
       <if test="content != null">
@@ -215,7 +215,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.n37.foodordering.model.Comment">
-   
+    
     update comment
     set content = #{content,jdbcType=VARCHAR},
       food_id = #{foodId,jdbcType=INTEGER},

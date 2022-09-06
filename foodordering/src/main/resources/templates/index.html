@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmln:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -45,39 +45,27 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="#hero">Home</a></li>
-          <li><a href="#about">Foods</a></li>
+          <li><a href="#danhsachsanpham">Foods</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="#chefs">Restaurant</a></li>
           <li><a href="#contact">Contact</a></li>
      
-          <li class="dropdown"><a href="#"><span>Account Manager</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a><span>Account</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
                   <li sec:authorize="isAnonymous()"><a th:href="@{login}">Login</a></li>
                   <li sec:authorize="isAnonymous()"><a th:href="@{registration}">Register</a></li>
-                  <li sec:authorize="isAuthenticated()" th:action="@{/logout}" menthod="POST"><a th:href="@{logout}">Logout</a></li>
                   <li sec:authorize="hasAuthority('USER')"><a href="#">Hello User</a></li>
-                  <li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{admin}">Hello Admin</a></li>
+                  <li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{admin}">Admin Manager</a></li>
+                  <li sec:authorize="hasAuthority('RESTAURANT')"><a th:href="@{admin}">Restaurant Manager</a></li>
+                  <li sec:authorize="isAuthenticated()" th:action="@{/logout}" menthod="POST"><a th:href="@{logout}">Logout</a></li>
+                  
                 </ul>
               </li>
-              <!--
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> -->
-         
-        
-         
-    
-        </ul>
      
       </nav><!-- .navbar -->
 
-      <a class="btn-book-a-table bi bi-cart-fill" href="#book-a-table"> Cart</a>
-      
-     
-      
+      <a class="btn-book-a-table bi bi-cart-fill" th:href="@{cart}"> Cart</a>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -106,24 +94,24 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-     <div class="danhsachsanpham py-5 bg-light">
+     <div id="danhsachsanpham" class="danhsachsanpham py-5 bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                           <a th:href="@{fooddetails}">
+                           <a th:href="@{food_details}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
                                     th:src="@{images/menu/menu-item-6.png}">
                             </a>
                             <div class="card-body">
-                                <a th:href="@{fooddetails}">
+                                <a th:href="@{food_details}">
                                     <h5>Salad trộn tổng hợp</h5>
                                 </a>
                                 <h6>Restaurant</h6>
                                 <p class="card-text">Tươi ngon, chất lượn</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{fooddetails}">Xem
+                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food_details}">Xem
                                             chi tiết</a>
                                     </div>
                                     <small class="text-muted text-right">
@@ -137,19 +125,19 @@
 
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <a th:href="@{fooddetails}">
+                            <a th:href="@{food_details}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
                                     th:src="@{images/menu/menu-item-5.png}">
                             </a>
                            <div class="card-body">
-                                <a th:href="@{fooddetails}">
+                                <a th:href="@{food_details}">
                                     <h5>Salad trộn tổng hợp</h5>
                                 </a>
                                 <h6>Restaurant</h6>
                                 <p class="card-text">Tươi ngon, chất lượn</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{fooddetails}">Xem
+                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food_details}">Xem
                                             chi tiết</a>
                                     </div>
                                     <small class="text-muted text-right">
@@ -163,19 +151,19 @@
 
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                           <a th:href="@{fooddetails}">
+                           <a th:href="@{food_details}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
                                    th:src="@{images/menu/menu-item-4.png}">
                             </a>
                             <div class="card-body">
-                               <a th:href="@{fooddetails}">
+                               <a th:href="@{food_details}">
                                     <h5>Salad trộn tổng hợp</h5>
                                 </a>
                                 <h6>Restaurant</h6>
                                 <p class="card-text">Tươi ngon, chất lượn</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{fooddetails}">Xem
+                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food_details}">Xem
                                             chi tiết</a>
                                     </div>
                                     <small class="text-muted text-right">
@@ -191,19 +179,19 @@
 
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                          <a th:href="@{fooddetails}">
+                          <a th:href="@{food_details}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
                                     th:src="@{images/menu/menu-item-3.png}">
                             </a>
                             <div class="card-body">
-                                 <a th:href="@{fooddetails}">
+                                 <a th:href="@{food_details}">
                                     <h5>Salad trộn tổng hợp</h5>
                                 </a>
                                 <h6>Restaurant</h6>
                                 <p class="card-text">Tươi ngon, chất lượn</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{fooddetails}">Xem
+                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food_details}">Xem
                                             chi tiết</a>
                                     </div>
                                     <small class="text-muted text-right">
@@ -217,19 +205,19 @@
 
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <a th:href="@{fooddetails}">
+                            <a th:href="@{food_details}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
                                     th:src="@{images/menu/menu-item-2.png}">
                             </a>
                             <div class="card-body">
-                                <a th:href="@{fooddetails}">
+                                <a th:href="@{food_details}">
                                     <h5>Salad trộn tổng hợp</h5>
                                 </a>
                                 <h6>Restaurant</h6>
                                 <p class="card-text">Tươi ngon, chất lượn</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{fooddetails}">Xem
+                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food_details}">Xem
                                             chi tiết</a>
                                     </div>
                                     <small class="text-muted text-right">
@@ -243,19 +231,19 @@
 
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                           <a th:href="@{fooddetails}">
+                           <a th:href="@{food_details}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
                                     th:src="@{images/menu/menu-item-1.png}">
                             </a>
                             <div class="card-body">
-                                <a th:href="@{fooddetails}">
+                                <a th:href="@{food_details}">
                                     <h5>Salad trộn tổng hợp</h5>
                                 </a>
                                 <h6>Restaurant</h6>
                                 <p class="card-text">Tươi ngon, chất lượng</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{fooddetails}">Xem
+                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food_details}">Xem
                                             chi tiết</a>
                                     </div>
                                     <small class="text-muted text-right">

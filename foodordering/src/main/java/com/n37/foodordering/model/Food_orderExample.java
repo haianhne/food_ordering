@@ -11,7 +11,7 @@ public class Food_orderExample {
    
     protected boolean distinct;
 
-    
+   
     protected List<Criteria> oredCriteria;
 
    
@@ -19,7 +19,6 @@ public class Food_orderExample {
         oredCriteria = new ArrayList<>();
     }
 
-   
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
@@ -28,7 +27,7 @@ public class Food_orderExample {
         return orderByClause;
     }
 
-   
+    
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
     }
@@ -42,19 +41,18 @@ public class Food_orderExample {
         return oredCriteria;
     }
 
-    
+   
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
     }
 
-   
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
         oredCriteria.add(criteria);
         return criteria;
     }
 
-   
+  
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
         if (oredCriteria.size() == 0) {
@@ -69,14 +67,14 @@ public class Food_orderExample {
         return criteria;
     }
 
-   
+    
     public void clear() {
         oredCriteria.clear();
         orderByClause = null;
         distinct = false;
     }
 
-   
+    
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
 
@@ -428,63 +426,63 @@ public class Food_orderExample {
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdIsNull() {
-            addCriterion("redtaurant_id is null");
+        public Criteria andRestaurantIdIsNull() {
+            addCriterion("restaurant_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdIsNotNull() {
-            addCriterion("redtaurant_id is not null");
+        public Criteria andRestaurantIdIsNotNull() {
+            addCriterion("restaurant_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdEqualTo(Integer value) {
-            addCriterion("redtaurant_id =", value, "redtaurantId");
+        public Criteria andRestaurantIdEqualTo(Integer value) {
+            addCriterion("restaurant_id =", value, "restaurantId");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdNotEqualTo(Integer value) {
-            addCriterion("redtaurant_id <>", value, "redtaurantId");
+        public Criteria andRestaurantIdNotEqualTo(Integer value) {
+            addCriterion("restaurant_id <>", value, "restaurantId");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdGreaterThan(Integer value) {
-            addCriterion("redtaurant_id >", value, "redtaurantId");
+        public Criteria andRestaurantIdGreaterThan(Integer value) {
+            addCriterion("restaurant_id >", value, "restaurantId");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("redtaurant_id >=", value, "redtaurantId");
+        public Criteria andRestaurantIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("restaurant_id >=", value, "restaurantId");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdLessThan(Integer value) {
-            addCriterion("redtaurant_id <", value, "redtaurantId");
+        public Criteria andRestaurantIdLessThan(Integer value) {
+            addCriterion("restaurant_id <", value, "restaurantId");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdLessThanOrEqualTo(Integer value) {
-            addCriterion("redtaurant_id <=", value, "redtaurantId");
+        public Criteria andRestaurantIdLessThanOrEqualTo(Integer value) {
+            addCriterion("restaurant_id <=", value, "restaurantId");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdIn(List<Integer> values) {
-            addCriterion("redtaurant_id in", values, "redtaurantId");
+        public Criteria andRestaurantIdIn(List<Integer> values) {
+            addCriterion("restaurant_id in", values, "restaurantId");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdNotIn(List<Integer> values) {
-            addCriterion("redtaurant_id not in", values, "redtaurantId");
+        public Criteria andRestaurantIdNotIn(List<Integer> values) {
+            addCriterion("restaurant_id not in", values, "restaurantId");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdBetween(Integer value1, Integer value2) {
-            addCriterion("redtaurant_id between", value1, value2, "redtaurantId");
+        public Criteria andRestaurantIdBetween(Integer value1, Integer value2) {
+            addCriterion("restaurant_id between", value1, value2, "restaurantId");
             return (Criteria) this;
         }
 
-        public Criteria andRedtaurantIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("redtaurant_id not between", value1, value2, "redtaurantId");
+        public Criteria andRestaurantIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("restaurant_id not between", value1, value2, "restaurantId");
             return (Criteria) this;
         }
 
@@ -553,7 +551,7 @@ public class Food_orderExample {
      * This class was generated by MyBatis Generator.
      * This class corresponds to the database table food_order
      *
-     * @mbg.generated do_not_delete_during_merge Thu Sep 01 09:03:08 ICT 2022
+     * @mbg.generated do_not_delete_during_merge Tue Sep 06 13:47:41 ICT 2022
      */
     public static class Criteria extends GeneratedCriteria {
         protected Criteria() {
@@ -565,7 +563,7 @@ public class Food_orderExample {
      * This class was generated by MyBatis Generator.
      * This class corresponds to the database table food_order
      *
-     * @mbg.generated Thu Sep 01 09:03:08 ICT 2022
+     * @mbg.generated Tue Sep 06 13:47:41 ICT 2022
      */
     public static class Criterion {
         private String condition;

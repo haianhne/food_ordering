@@ -24,7 +24,6 @@ public interface UserMapper {
 	
 	int insertSelective(User row);
 
-	
 	List<User> selectByExample(UserExample example);
 
 	

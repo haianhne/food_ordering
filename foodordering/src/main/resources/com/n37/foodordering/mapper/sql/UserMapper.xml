@@ -14,7 +14,7 @@
     <result column="is_active" jdbcType="BIT" property="isActive" />
   </resultMap>
   <sql id="Example_Where_Clause">
-   
+    
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -44,7 +44,7 @@
     </where>
   </sql>
   <sql id="Update_By_Example_Where_Clause">
-   
+    
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -93,14 +93,14 @@
     </if>
   </select>
   <delete id="deleteByExample" parameterType="com.n37.foodordering.model.UserExample">
-   
+    
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.n37.foodordering.model.User">
-   
+    
     insert into user (id, full_name, user_name, 
       user_password, email, phone, 
       user_role, avatar, is_active
@@ -111,7 +111,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.n37.foodordering.model.User">
-    
+   
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -180,7 +180,7 @@
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-   
+    
     update user
     <set>
       <if test="row.id != null">
@@ -216,7 +216,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    
+   
     update user
     set id = #{row.id,jdbcType=INTEGER},
       full_name = #{row.fullName,jdbcType=VARCHAR},

@@ -6,12 +6,13 @@ public class Food {
    
     private Integer id;
 
+   
     private String name;
 
    
     private Date uploadTime;
 
-    
+   
     private String decription;
 
    
@@ -20,16 +21,16 @@ public class Food {
    
     private Long unitPrice;
 
-    
+   
     private Byte status;
 
-    
+   
     private String category;
 
-   
+  
     private Integer restaurantId;
 
-   
+  
     public Integer getId() {
         return id;
     }
@@ -39,12 +40,12 @@ public class Food {
         this.id = id;
     }
 
-    
+  
     public String getName() {
         return name;
     }
 
-    
+   
     public void setName(String name) {
         this.name = name;
     }
@@ -54,11 +55,12 @@ public class Food {
         return uploadTime;
     }
 
-    
+   
     public void setUploadTime(Date uploadTime) {
         this.uploadTime = uploadTime;
     }
 
+   
     public String getDecription() {
         return decription;
     }
@@ -68,7 +70,7 @@ public class Food {
         this.decription = decription;
     }
 
-    
+   
     public String getImage() {
         return image;
     }
@@ -82,17 +84,16 @@ public class Food {
         return unitPrice;
     }
 
-   
+    
     public void setUnitPrice(Long unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    
     public Byte getStatus() {
         return status;
     }
 
-    
+  
     public void setStatus(Byte status) {
         this.status = status;
     }
@@ -107,10 +108,12 @@ public class Food {
         this.category = category;
     }
 
+    
     public Integer getRestaurantId() {
         return restaurantId;
     }
 
+    
     public void setRestaurantId(Integer restaurantId) {
         this.restaurantId = restaurantId;
     }

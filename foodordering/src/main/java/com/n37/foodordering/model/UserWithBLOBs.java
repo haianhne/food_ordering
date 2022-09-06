@@ -1,19 +1,18 @@
 package com.n37.foodordering.model;
 
 public class UserWithBLOBs extends User {
-    
+   
     private byte[] sslCipher;
 
-    
+   
     private byte[] x509Issuer;
 
-    
+   
     private byte[] x509Subject;
 
-    
+   
     private String authenticationString;
 
-   
     private String userAttributes;
 
    
@@ -21,22 +20,21 @@ public class UserWithBLOBs extends User {
         return sslCipher;
     }
 
-    
+   
     public void setSslCipher(byte[] sslCipher) {
         this.sslCipher = sslCipher;
     }
 
-    
+   
     public byte[] getX509Issuer() {
         return x509Issuer;
     }
 
-    
+   
     public void setX509Issuer(byte[] x509Issuer) {
         this.x509Issuer = x509Issuer;
     }
 
-    
     public byte[] getX509Subject() {
         return x509Subject;
     }
@@ -51,11 +49,12 @@ public class UserWithBLOBs extends User {
         return authenticationString;
     }
 
+   
     public void setAuthenticationString(String authenticationString) {
         this.authenticationString = authenticationString;
     }
 
-  
+   
     public String getUserAttributes() {
         return userAttributes;
     }

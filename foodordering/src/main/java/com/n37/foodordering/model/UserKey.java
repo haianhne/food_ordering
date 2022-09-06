@@ -7,13 +7,10 @@ public class UserKey {
     
     private String user;
 
-    
     public String getHost() {
         return host;
     }
 
-    
-    
     public void setHost(String host) {
         this.host = host;
     }
@@ -23,7 +20,6 @@ public class UserKey {
         return user;
     }
 
-    
     public void setUser(String user) {
         this.user = user;
     }

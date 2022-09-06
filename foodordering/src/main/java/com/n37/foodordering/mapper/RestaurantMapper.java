@@ -6,24 +6,23 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface RestaurantMapper {
-   
+    
     long countByExample(RestaurantExample example);
 
-    
+   
     int deleteByExample(RestaurantExample example);
 
-  
+   
     int deleteByPrimaryKey(Integer id);
 
-  
+    
     int insert(Restaurant row);
 
-  
     int insertSelective(Restaurant row);
 
-  
     List<Restaurant> selectByExample(RestaurantExample example);
 
+    
     Restaurant selectByPrimaryKey(Integer id);
 
   
@@ -32,7 +31,9 @@ public interface RestaurantMapper {
    
     int updateByExample(@Param("row") Restaurant row, @Param("example") RestaurantExample example);
 
+  
     int updateByPrimaryKeySelective(Restaurant row);
 
+   
     int updateByPrimaryKey(Restaurant row);
 }

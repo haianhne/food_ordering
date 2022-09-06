@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class User {
 
-	
 	private Integer id;
 	
 	private String fullName;
@@ -28,7 +27,6 @@ public class User {
 		return id;
 	}
 
-	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -43,12 +41,10 @@ public class User {
 		this.fullName = fullName;
 	}
 
-	
 	public String getUserName() {
 		return userName;
 	}
 
-	
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -78,7 +74,6 @@ public class User {
 		return phone;
 	}
 
-	
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
@@ -103,7 +98,6 @@ public class User {
 		this.avatar = avatar;
 	}
 
-	
 	public Boolean getIsActive() {
 		return isActive;
 	}
@@ -111,5 +105,10 @@ public class User {
 	
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [Full name "+ fullName +" userName=" + userName + ", Phone=" + phone + ", Pass" + userPassword+ "]";
 	}
 }
