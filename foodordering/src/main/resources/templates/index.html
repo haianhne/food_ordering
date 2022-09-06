@@ -54,7 +54,8 @@
           <li class="dropdown"><a><span>Account</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
                   <li sec:authorize="isAnonymous()"><a th:href="@{login}">Login</a></li>
-                  <li sec:authorize="isAnonymous()"><a th:href="@{registration}">Register</a></li>
+                  <li sec:authorize="isAnonymous()"><a th:href="@{user_register}">Register as User</a></li>
+                  <li sec:authorize="isAnonymous()"><a th:href="@{res_register}">Register as Restaurant</a></li>
                   <li sec:authorize="hasAuthority('USER')"><a href="#">Hello User</a></li>
                   <li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{admin}">Admin Manager</a></li>
                   <li sec:authorize="hasAuthority('RESTAURANT')"><a th:href="@{admin}">Restaurant Manager</a></li>
