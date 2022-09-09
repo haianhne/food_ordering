@@ -8,7 +8,24 @@ import org.springframework.web.servlet.ModelAndView;
 public class AdminPageController {
 	
 	@GetMapping("/admin")
-	public String adminPageString () {
+	public String adminPage () {
 		return "admin";
+	}
+	
+	@GetMapping("/restaurant")
+	public String restaurantPage () {
+		return "admin";
+	}
+	@GetMapping("/restaurant-manager")
+	public String restaurantManagerPage() {
+		return "restaurant";
+	}
+	@GetMapping("/user-manager")
+	public String userManagerPage() {
+		return "user";
+	}
+	@GetMapping("/test")
+	public String testPage() {
+		return "test";
 	}
 }

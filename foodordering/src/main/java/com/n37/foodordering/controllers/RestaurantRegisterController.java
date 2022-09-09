@@ -35,8 +35,7 @@ public class RestaurantRegisterController {
 		userMapper.insert(user);
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("user_information");
-		modelAndView.addObject("user", user);
+		modelAndView.setViewName("login");
 		return modelAndView;
 	}
 }

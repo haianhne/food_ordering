@@ -39,7 +39,7 @@ public class RegistrationController {
 		userMapper.insert(user);
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("user_information");
+		modelAndView.setViewName("login");
 		modelAndView.addObject("user", user);
 		return modelAndView;
 	}

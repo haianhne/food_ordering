@@ -38,7 +38,8 @@ public class SercurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 			.authorizeHttpRequests()
-		 	.antMatchers("/admin/**").hasAnyAuthority("ADMIN", "RESTAURANT")
+		 	.antMatchers("/admin/**").hasAnyAuthority("ADMIN")
+		 	.antMatchers("/restaurant/**").hasAnyAuthority("RESTAURANT")
 		 	.antMatchers("/").permitAll()
 		 	.and()
 		 	.formLogin(form -> form
@@ -63,7 +64,7 @@ public class SercurityConfig {
 	@Bean
 	public WebSecurityCustomizer webSecurityCustomizer() {
 		return (web) -> web.ignoring().antMatchers("/css/**","/fonts/**","/images/**","/js/**","/vendor/**","/scss/**",
-				"/registration","/res_registration","/fooddetail" );
+				"/registration","/res_registration","/fooddetails" );
 	}
 	
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {

@@ -103,7 +103,7 @@ CREATE TABLE `food` (
 
 LOCK TABLES `food` WRITE;
 /*!40000 ALTER TABLE `food` DISABLE KEYS */;
-INSERT INTO `food` VALUES (1,'Bún bò Huế','2021-08-30 00:00:00','Ngon','https://trivietphat.net/wp-content/uploads/2021/08/bun-bo-1.jpg',45000,1,'Bún',5),(2,'Bánh mì chả cá','2022-01-30 00:00:00','chả cá ăn vào bị bột','https://xebanhmithonhiky.vn/wp-content/uploads/2020/07/banh-mi-cha-ca.jpg',20000,1,'Bánh mì',6),(4,'Cơm gà luộc','2022-08-12 00:00:00','Gà giòn, không bột, thả vườn','https://i-giadinh.vnecdn.net/2021/01/29/com2-1611892464-7028-1611892596.jpg',35000,1,'Cơm',1),(5,'Cơm tấm','2022-04-08 00:00:00','Hạt dẻo, sườn nướng mật ong','https://cdn.beptruong.edu.vn/wp-content/uploads/2018/06/cach-uop-thit-nuong-com-tam.jpg',45000,0,'Cơm',2),(6,'Bánh mì nướng muối ớt','2022-07-24 00:00:00','Bao thấm, bao ngon','http://cdn.tgdd.vn/Files/2019/02/27/1152127/lam-banh-mi-nuong-muoi-ot-gion-thom-nuc-mui-202110301055149823.jpg',15000,1,'Bánh mì',7),(7,'Bánh cuốn chả ram','2022-09-04 00:00:00','Nhiều nhân tôm thịt, rau ăn kèm','https://cdn.beptruong.edu.vn/wp-content/uploads/2018/06/cach-uop-thit-nuong-com-tam.jpg',49000,1,'Ăn vặt',1);
+INSERT INTO `food` VALUES (1,'Bún bò Huế','2021-08-30 00:00:00','Ngon nhiều thịt bò tươi','https://trivietphat.net/wp-content/uploads/2021/08/bun-bo-1.jpg',45000,1,'Bún',5),(2,'Bánh mì chả cá','2022-01-30 00:00:00','chả cá ăn vào bị bột','https://xebanhmithonhiky.vn/wp-content/uploads/2020/07/banh-mi-cha-ca.jpg',20000,1,'Bánh mì',6),(4,'Cơm gà luộc','2022-08-12 00:00:00','Gà giòn, không bột, thả vườn','https://i-giadinh.vnecdn.net/2021/01/29/com2-1611892464-7028-1611892596.jpg',35000,1,'Cơm',1),(5,'Cơm tấm','2022-04-08 00:00:00','Hạt dẻo, sườn nướng mật ong','https://cdn.beptruong.edu.vn/wp-content/uploads/2018/06/cach-uop-thit-nuong-com-tam.jpg',45000,0,'Cơm',2),(6,'Bánh mì nướng muối ớt','2022-07-24 00:00:00','Bao thấm, bao ngon','http://cdn.tgdd.vn/Files/2019/02/27/1152127/lam-banh-mi-nuong-muoi-ot-gion-thom-nuc-mui-202110301055149823.jpg',15000,1,'Bánh mì',7),(7,'Bánh cuốn chả ram','2022-09-04 00:00:00','Nhiều nhân tôm thịt, rau ăn kèm','https://cdn.beptruong.edu.vn/wp-content/uploads/2018/06/cach-uop-thit-nuong-com-tam.jpg',49000,1,'Ăn vặt',1);
 /*!40000 ALTER TABLE `food` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,6 +217,7 @@ CREATE TABLE `restaurant` (
   `created_date` datetime NOT NULL,
   `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `image` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `andress` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_restaurant_user_idx` (`user_id`),
   CONSTRAINT `fk_restaurant_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
@@ -229,7 +230,7 @@ CREATE TABLE `restaurant` (
 
 LOCK TABLES `restaurant` WRITE;
 /*!40000 ALTER TABLE `restaurant` DISABLE KEYS */;
-INSERT INTO `restaurant` VALUES (1,'Cơm gà Ngon',1,'2022-02-02 00:00:00','Gà ăn vô tư','https://vntopfood.com/wp-content/uploads/2022/07/com-ga-Phu-Quoc.jpg'),(2,'Cơm tấm Phúc Lộc Thọ',2,'2022-01-01 00:00:00','Quán nướng thịt ngon','https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2021/2/19/photo1613668692054-1613668692418416660680-16136687715501020583665.jpg'),(3,'Bún chả cá Hoàng',3,'2022-03-03 00:00:00','Bún tươi, chả cá ngon','https://cdn.cet.edu.vn/wp-content/uploads/2018/09/bun-cha-ca-nha-trang.jpg'),(4,'Bánh mì heo quay Hà',4,'2022-04-04 00:00:00','Thịt heo giòn','https://cdn.tgdd.vn/Files/2021/09/06/1380700/cach-lam-banh-mi-heo-quay-thom-ngon-cho-bua-sang-dinh-duong-202201110134135409.jpg'),(5,'Bún bò Huế Bà Mười',5,'2021-12-08 00:00:00','Bún bò chuẩn Huế','https://file.hstatic.net/200000395159/article/nau-bun-bo-hue-chuan-vi-tai-nha-voi-cot-co-dac-quoc-viet-foods_59b7ba1543004e67967af718d8afc32b.jpg'),(6,'Bánh mì chả cá Út Nguyên',10,'2021-03-30 00:00:00','Quán có view bao đẹp, mời bạn ăn nha!!','https://noiphodien123.vn/wp-content/uploads/2021/05/cach-lam-banh-mi-cha-ca-nha-trang.jpg'),(7,'Bánh mì nướng muối ớt Thảo',9,'2022-03-07 00:00:00','bánh mì bao giòn ngon','https://bepxua.vn/wp-content/uploads/2020/08/banh-mi-nuong-muoi-ot-ngon.jpg');
+INSERT INTO `restaurant` VALUES (1,'Cơm gà Ngon',4,'2022-02-02 00:00:00','Gà ăn vô tư','https://vntopfood.com/wp-content/uploads/2022/07/com-ga-Phu-Quoc.jpg',NULL),(2,'Cơm tấm Phúc Lộc Thọ',5,'2022-01-01 00:00:00','Quán nướng thịt ngon','https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2021/2/19/photo1613668692054-1613668692418416660680-16136687715501020583665.jpg',NULL),(3,'Bún chả cá Hoàng',4,'2022-03-03 00:00:00','Bún tươi, chả cá ngon','https://cdn.cet.edu.vn/wp-content/uploads/2018/09/bun-cha-ca-nha-trang.jpg',NULL),(4,'Bánh mì heo quay Hà',5,'2022-04-04 00:00:00','Thịt heo giòn','https://cdn.tgdd.vn/Files/2021/09/06/1380700/cach-lam-banh-mi-heo-quay-thom-ngon-cho-bua-sang-dinh-duong-202201110134135409.jpg',NULL),(5,'Bún bò Huế Bà Mười',5,'2021-12-08 00:00:00','Bún bò chuẩn Huế','https://file.hstatic.net/200000395159/article/nau-bun-bo-hue-chuan-vi-tai-nha-voi-cot-co-dac-quoc-viet-foods_59b7ba1543004e67967af718d8afc32b.jpg',NULL),(6,'Bánh mì chả cá Út Nguyên',4,'2021-03-30 00:00:00','Quán có view bao đẹp, mời bạn ăn nha!!','https://noiphodien123.vn/wp-content/uploads/2021/05/cach-lam-banh-mi-cha-ca-nha-trang.jpg',NULL),(7,'Bánh mì nướng muối ớt Thảo',5,'2022-03-07 00:00:00','bánh mì bao giòn ngon','https://bepxua.vn/wp-content/uploads/2020/08/banh-mi-nuong-muoi-ot-ngon.jpg',NULL);
 /*!40000 ALTER TABLE `restaurant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,11 +249,12 @@ CREATE TABLE `user` (
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `phone` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `user_role` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` bit(1) DEFAULT b'1',
+  `andress` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name_UNIQUE` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,7 +263,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Nguyen Trong Nhan','admin','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','1951052140nhan@ou.edu.vn','0877978865','ADMIN','https://i.pinimg.com/564x/a7/e0/ea/a7e0eaa86177194cf7d9a28e8685244a.jpg',_binary ''),(2,'Nguyen Thi An','user1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','12314343412A@ou.edu.vn','0788757463','USER','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(3,'Nguyen Quang Minh','user2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','nguyenquangminh@gmail.com','0797865756','USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary ''),(4,'Nguyen Thi Minh Khai','restaurant1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','minhkhaii@gmail.com','0877856545','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(5,'Tran Thi Thu','restaurant2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','thutran@gmail.com','0123456789','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary ''),(6,'Nguyễ Thị Thúy Vi','restaurant3','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','Vicute34245@hmail.com','0789686756','RESTAURANT','http://redsvn.net/wp-content/uploads/2014/07/Redsvn-Meo-ca-07.jpg',_binary ''),(7,'Quách Tuấn Hiền','restaurant5','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','shawn454@gmail.com','078867856','RESTAURANT','https://icdn.dantri.com.vn/thumb_w/660/2021/09/08/316784x441-1631079051594.jpg',_binary ''),(8,'Nguyễn Thị Bích Hồng','restaurant6','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','keryy564@gmail.com','0878567574','RESTAURANT','https://mcdn.coolmate.me/uploads/December2021/do-mac-cho-meo_1.jpg',_binary ''),(9,'Đỗ Khánh Hân','Restaurant7','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','hankhanh4334@gmail.com','089785476','RESTAURANT','https://gamek.mediacdn.vn/133514250583805952/2022/3/21/photo-1-16478519683281481122872.jpg',_binary ''),(10,'Phan lê Thái An\n','Restaurant8','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','Anple234@gmail.com','08796855','RESTAURANT','https://image.vtc.vn/resize/th/upload/2022/03/30/dang-yeu-14130933.jpg',_binary '');
+INSERT INTO `user` VALUES (1,'Nguyen Trong Nhan','admin','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','1951052140nhan@ou.edu.vn','0877978865','ADMIN','https://i.pinimg.com/564x/a7/e0/ea/a7e0eaa86177194cf7d9a28e8685244a.jpg',_binary '',NULL),(2,'Nguyen Thi An','user1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','12314343412A@ou.edu.vn','0788757463','USER','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '',NULL),(3,'Nguyen Quang Minh','user2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','nguyenquangminh@gmail.com','0797865756','USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary '',NULL),(4,'Nguyen Thi Minh Khai','restaurant1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','minhkhaii@gmail.com','0877856545','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '',NULL),(5,'Tran Thi Thu','restaurant2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','thutran@gmail.com','0123456789','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -274,4 +276,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-04 11:37:05
+-- Dump completed on 2022-09-09 15:06:22
