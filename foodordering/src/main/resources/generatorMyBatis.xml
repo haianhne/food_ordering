@@ -26,7 +26,7 @@
       
     </table>
     
-    <table tableName="customer" domainObjectName="Customer" >
+    <!-- <table tableName="customer" domainObjectName="Customer" >
       
     </table>
     
@@ -53,6 +53,7 @@
     <table tableName="comment" domainObjectName="Comment" >
       
     </table>
+    -->
     
 
   </context>

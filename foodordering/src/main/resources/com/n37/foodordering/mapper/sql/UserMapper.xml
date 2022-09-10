@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.n37.foodordering.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.n37.foodordering.model.User">
-    
+   
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="full_name" jdbcType="VARCHAR" property="fullName" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
@@ -12,9 +12,10 @@
     <result column="user_role" jdbcType="VARCHAR" property="userRole" />
     <result column="avatar" jdbcType="VARCHAR" property="avatar" />
     <result column="is_active" jdbcType="BIT" property="isActive" />
+    <result column="andress" jdbcType="VARCHAR" property="andress" />
   </resultMap>
   <sql id="Example_Where_Clause">
-    
+  
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -44,7 +45,7 @@
     </where>
   </sql>
   <sql id="Update_By_Example_Where_Clause">
-    
+   
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -75,10 +76,11 @@
   </sql>
   <sql id="Base_Column_List">
     
-    id, full_name, user_name, user_password, email, phone, user_role, avatar, is_active
+    id, full_name, user_name, user_password, email, phone, user_role, avatar, is_active, 
+    andress
   </sql>
   <select id="selectByExample" parameterType="com.n37.foodordering.model.UserExample" resultMap="BaseResultMap">
-   
+  
     select
     <if test="distinct">
       distinct
@@ -100,15 +102,15 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.n37.foodordering.model.User">
-    
+  
     insert into user (id, full_name, user_name, 
       user_password, email, phone, 
-      user_role, avatar, is_active
-      )
+      user_role, avatar, is_active, 
+      andress)
     values (#{id,jdbcType=INTEGER}, #{fullName,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
       #{userPassword,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{userRole,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, #{isActive,jdbcType=BIT}
-      )
+      #{userRole,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, #{isActive,jdbcType=BIT}, 
+      #{andress,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.n37.foodordering.model.User">
    
@@ -141,6 +143,9 @@
       <if test="isActive != null">
         is_active,
       </if>
+      <if test="andress != null">
+        andress,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -170,17 +175,20 @@
       <if test="isActive != null">
         #{isActive,jdbcType=BIT},
       </if>
+      <if test="andress != null">
+        #{andress,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.n37.foodordering.model.UserExample" resultType="java.lang.Long">
-    
+   
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    
+   
     update user
     <set>
       <if test="row.id != null">
@@ -210,6 +218,9 @@
       <if test="row.isActive != null">
         is_active = #{row.isActive,jdbcType=BIT},
       </if>
+      <if test="row.andress != null">
+        andress = #{row.andress,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="example != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -226,7 +237,8 @@
       phone = #{row.phone,jdbcType=VARCHAR},
       user_role = #{row.userRole,jdbcType=VARCHAR},
       avatar = #{row.avatar,jdbcType=VARCHAR},
-      is_active = #{row.isActive,jdbcType=BIT}
+      is_active = #{row.isActive,jdbcType=BIT},
+      andress = #{row.andress,jdbcType=VARCHAR}
     <if test="example != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

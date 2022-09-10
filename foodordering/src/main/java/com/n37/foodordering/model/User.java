@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class User {
 
+	
 	private Integer id;
 	
 	private String fullName;
@@ -21,12 +22,15 @@ public class User {
 	private String avatar;
 	
 	private Boolean isActive;
-
 	
+	private String andress;
+
+
 	public Integer getId() {
 		return id;
 	}
 
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -36,15 +40,17 @@ public class User {
 		return fullName;
 	}
 
-	
+
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
 
+	
 	public String getUserName() {
 		return userName;
 	}
 
+	
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -59,17 +65,14 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
-	
 	public String getEmail() {
 		return email;
 	}
 
-	
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	
 	public String getPhone() {
 		return phone;
 	}
@@ -88,12 +91,10 @@ public class User {
 		this.userRole = userRole;
 	}
 
-	
 	public String getAvatar() {
 		return avatar;
 	}
 
-	
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
@@ -102,13 +103,16 @@ public class User {
 		return isActive;
 	}
 
-	
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
-	
-	@Override
-	public String toString() {
-		return "User [Full name "+ fullName +" userName=" + userName + ", Phone=" + phone + ", Pass" + userPassword+ "]";
+
+
+	public String getAndress() {
+		return andress;
+	}
+
+	public void setAndress(String andress) {
+		this.andress = andress;
 	}
 }

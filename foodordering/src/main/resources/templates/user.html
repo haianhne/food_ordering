@@ -423,42 +423,24 @@
 						<th>User Name</th>
 						<th>Phone</th>
 						<th>Andress</th>
-						<th>Is Active</th>
+						<th>is Active</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<tr th:each="user:${listUsers}">
 						<td>
 							<span class="custom-checkbox">
 								<input type="checkbox" id="checkbox1" name="options[]" value="1">
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-						<td>1</td>
-						<td>Nguyễn Duy Hải Anh</td>
-						<td>user1</td>
-						<td>0967943112</td>
-						<td>371 Nguyễn Kiệm, P.3, Q.Gò Vấp</td>
-						<td>1</td>
-						<td>
-							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox2" name="options[]" value="1">
-								<label for="checkbox2"></label>
-							</span>
-						</td>
-						<td>1</td>
-						<td>Nguyễn Trọng Nhân</td>
-						<td>user2</td>
-						<td>0978945612</td>
-						<td>86 Phổ Quang, HCM</td>
-						<td>0</td>
+						<td th:text="${user.id}">id</td>
+						<td th:text="${user.fullName}">Full name</td>
+						<td th:text="${user.userName}">User name</td>
+						<td th:text="${user.phone}">Phone</td>
+						<td th:text="${user.andress}">Andress</td>
+						<td th:text="${user.isActive}">is Active</td>
 						<td>
 							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>

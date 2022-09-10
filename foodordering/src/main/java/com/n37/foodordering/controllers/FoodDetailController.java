@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class FoodDetailController {
-	@RequestMapping("/fooddetails")
+	@RequestMapping("/food-details")
 	public String foodDetailPage () {
-		return "foodDetails";
+		return "food_details";
 	}
 }

@@ -3,8 +3,11 @@ package com.n37.foodordering.mapper;
 import com.n37.foodordering.model.Food;
 import com.n37.foodordering.model.FoodExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface FoodMapper {
     
     long countByExample(FoodExample example);
