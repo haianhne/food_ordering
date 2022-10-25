@@ -20,9 +20,4 @@ public class AdminPageController {
 	public String restaurantManagerPage() {
 		return "restaurant";
 	}
-
-	@GetMapping("/test")
-	public String testPage() {
-		return "test";
-	}
 }

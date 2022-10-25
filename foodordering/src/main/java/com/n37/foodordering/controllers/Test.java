@@ -12,18 +12,17 @@ import com.n37.foodordering.mapper.FoodMapper;
 import com.n37.foodordering.model.Food;
 import com.n37.foodordering.model.FoodExample;
 
-
 @Controller
-public class HomePageController {
-	
+public class Test {
 	@Autowired
 	FoodMapper foodMapper;
 	
-	@GetMapping("/")
-	public ModelAndView indexPage (Model model) {
-		ModelAndView modelAndView = new ModelAndView("index");
+	@GetMapping("test")
+	public ModelAndView getAllFood (Model model) {
+		ModelAndView modelAndView = new ModelAndView("test");
 		FoodExample example = new FoodExample();
 		List<Food> listFoods = foodMapper.selectByExample(example);
+		System.out.println("Food: " + listFoods);
 		model.addAttribute("listFoods", listFoods);	
 		return modelAndView;
 	}

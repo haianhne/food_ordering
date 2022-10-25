@@ -49,22 +49,22 @@ public class FoodManagerController {
 		return modelAndView;
 	}
 	
-	@PostMapping("editFood")
-	public ModelAndView editFood(Food food ,@RequestParam Map<String, Object> params) {
-		food.setName((String) params.get("name"));
-		food.setCategory((String) params.get("category"));
-		food.setDecription((String) params.get("decription"));
-		food.setUnitPrice((Long) params.get("unitPrice"));
-		food.setStatus((Byte) params.get("status"));
-		
-		FoodExample foodExample = new FoodExample();
-	
-		
-		foodMapper.updateByExample(food, foodExample);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("redirect:/food-manager");
-		return modelAndView;
-	}
+//	@PostMapping("editFood")
+//	public ModelAndView editFood(Food food ,@RequestParam Map<String, Object> params) {
+//		food.setName((String) params.get("name"));
+//		food.setCategory((String) params.get("category"));
+//		food.setDecription((String) params.get("decription"));
+//		food.setUnitPrice((Long) params.get("unitPrice"));
+//		food.setStatus((Byte) params.get("status"));
+//		
+//		FoodExample foodExample = new FoodExample();
+//	
+//		
+//		foodMapper.updateByExample(food, foodExample);
+//		ModelAndView modelAndView = new ModelAndView();
+//		modelAndView.setViewName("redirect:/food-manager");
+//		return modelAndView;
+//	}
 	
 	
 }

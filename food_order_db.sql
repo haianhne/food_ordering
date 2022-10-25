@@ -60,7 +60,10 @@ CREATE TABLE `customer` (
   `email` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` int NOT NULL,
   `address` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_customer_user_idx` (`user_id`),
+  CONSTRAINT `fk_customer_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -70,7 +73,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'Hằng','Nguyễn Trương Kim ','HangNguyenTruong@gmail.com',979868685,'77,Hoàng Diệu 2, Linh Trung, Thủ Dức '),(2,'Bình','Chắng Lý','Binhchangly@gmail.com',975464456,'93, Dân Chủ, Bình Thọ, Thủ Đức'),(3,'Minh','Đỗ Văn','Minh3432425@gmail.com',878675756,'Thái Bình'),(4,'Hậu','Hoàng Thái','Hauhoang342@gmail.com',897678565,'Bình Định');
+INSERT INTO `customer` VALUES (1,'Hằng','Nguyễn Trương Kim ','HangNguyenTruong@gmail.com',979868685,'77,Hoàng Diệu 2, Linh Trung, Thủ Dức ',4),(2,'Bình','Chắng Lý','Binhchangly@gmail.com',975464456,'93, Dân Chủ, Bình Thọ, Thủ Đức',5),(3,'Minh','Đỗ Văn','Minh3432425@gmail.com',878675756,'Thái Bình',4),(4,'Hậu','Hoàng Thái','Hauhoang342@gmail.com',897678565,'Bình Định',5);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,13 +91,13 @@ CREATE TABLE `food` (
   `decription` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `unit_price` decimal(10,0) DEFAULT '0',
-  `status` tinyint NOT NULL,
+  `status` tinyint DEFAULT NULL,
   `category` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `restaurant_id` int NOT NULL,
+  `restaurant_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_food_restaurant_idx` (`restaurant_id`),
   CONSTRAINT `fk_food_restaurant` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +106,7 @@ CREATE TABLE `food` (
 
 LOCK TABLES `food` WRITE;
 /*!40000 ALTER TABLE `food` DISABLE KEYS */;
-INSERT INTO `food` VALUES (1,'Bún bò Huế','2021-08-30 00:00:00','Ngon nhiều thịt bò tươi','https://trivietphat.net/wp-content/uploads/2021/08/bun-bo-1.jpg',45000,1,'Bún',5),(2,'Bánh mì chả cá','2022-01-30 00:00:00','chả cá ăn vào bị bột','https://xebanhmithonhiky.vn/wp-content/uploads/2020/07/banh-mi-cha-ca.jpg',20000,1,'Bánh mì',6),(4,'Cơm gà luộc','2022-08-12 00:00:00','Gà giòn, không bột, thả vườn','https://i-giadinh.vnecdn.net/2021/01/29/com2-1611892464-7028-1611892596.jpg',35000,1,'Cơm',1),(5,'Cơm tấm','2022-04-08 00:00:00','Hạt dẻo, sườn nướng mật ong','https://cdn.beptruong.edu.vn/wp-content/uploads/2018/06/cach-uop-thit-nuong-com-tam.jpg',45000,0,'Cơm',2),(6,'Bánh mì nướng muối ớt','2022-07-24 00:00:00','Bao thấm, bao ngon','http://cdn.tgdd.vn/Files/2019/02/27/1152127/lam-banh-mi-nuong-muoi-ot-gion-thom-nuc-mui-202110301055149823.jpg',15000,1,'Bánh mì',7),(7,'Bánh cuốn chả ram','2022-09-04 00:00:00','Nhiều nhân tôm thịt, rau ăn kèm','https://cdn.beptruong.edu.vn/wp-content/uploads/2018/06/cach-uop-thit-nuong-com-tam.jpg',49000,1,'Ăn vặt',1);
+INSERT INTO `food` VALUES (1,'Bún bò Huế','2021-08-30 00:00:00','Ngon nhiều thịt bò tươi','images/menu/menu-item-1.png',45000,1,'Bún',5),(2,'Bánh mì chả cá','2022-01-30 00:00:00','chả cá ăn vào bị bột','images/menu/menu-item-2.png',20000,1,'Bánh mì',6),(4,'Cơm gà luộc','2022-08-12 00:00:00','Gà giòn, không bột, thả vườn','images/menu/menu-item-3.png',35000,1,'Cơm',1),(5,'Cơm tấm','2022-04-08 00:00:00','Hạt dẻo, sườn nướng mật ong','images/menu/menu-item-4.png',45000,0,'Cơm',2),(6,'Bánh mì nướng muối ớt','2022-07-24 00:00:00','Bao thấm, bao ngon','images/menu/menu-item-5.png',15000,1,'Bánh mì',7),(7,'Bánh cuốn chả ram','2022-09-04 00:00:00','Nhiều nhân tôm thịt, rau ăn kèm','images/menu/menu-item-6.png',49000,1,'Ăn vặt',1);
 /*!40000 ALTER TABLE `food` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,17 +247,17 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `full_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `user_password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'user',
+  `user_password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'pass',
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `phone` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `user_role` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '123456',
+  `user_role` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'USER',
   `avatar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` bit(1) DEFAULT b'1',
-  `andress` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `andress` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name_UNIQUE` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +266,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Nguyen Trong Nhan','admin','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','1951052140nhan@ou.edu.vn','0877978865','ADMIN','https://i.pinimg.com/564x/a7/e0/ea/a7e0eaa86177194cf7d9a28e8685244a.jpg',_binary '',NULL),(2,'Nguyen Thi An','user1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','12314343412A@ou.edu.vn','0788757463','USER','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '',NULL),(3,'Nguyen Quang Minh','user2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','nguyenquangminh@gmail.com','0797865756','USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary '',NULL),(4,'Nguyen Thi Minh Khai','restaurant1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','minhkhaii@gmail.com','0877856545','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '',NULL),(5,'Tran Thi Thu','restaurant2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','thutran@gmail.com','0123456789','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '',NULL);
+INSERT INTO `user` VALUES (1,'Nguyen Trong Nhan','admin','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','1951052140nhan@ou.edu.vn','0877978865','ADMIN','https://i.pinimg.com/564x/a7/e0/ea/a7e0eaa86177194cf7d9a28e8685244a.jpg',_binary '','123 Bạch liêu, tp.Vinh, Nghệ An'),(2,'Nguyen Thi An','user1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','12314343412A@ou.edu.vn','0788757463','USER','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '','Thôn khánh yên, xã thạch bằng, tỉnh Hà Tĩnh'),(3,'Nguyen Quang Minh','user2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','nguyenquangminh@gmail.com','0797865756','USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary '','89 Phổ quang, phường 3, Gò vấp'),(4,'Nguyen Thi Minh Khai','restaurant1','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','minhkhaii@gmail.com','0877856545','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '','31 Hoàng sa, quận 2, tp, HCM'),(5,'Tran Thi Thu','restaurant2','$2a$10$ZNKZiHFayy1cey09bcP0KOYH5HzV7m43SQb5nlxNwJCWpnmki9gVS','thutran@gmail.com','0123456789','RESTAURANT','https://cdn.eva.vn/upload/3-2021/images/2021-09-24/image1-1632448500-758-width650height520.jpg',_binary '','321 Phạm Văn Đồng, Gò vấp, HCM'),(6,'Nguyen Hai Anh','user3','$2a$10$eOCeTXOXluAHu7qlh.z33.FecpFQGbccNYvi2Vnrf7b16eevC1.C6','haianh@gmail.com','0123456789','USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary '','Thôn khánh yên, xã thạch bằng, tỉnh Hà Tĩnh'),(7,'Trần Văn Bo','user4','$2a$10$eOCeTXOXluAHu7qlh.z33.FecpFQGbccNYvi2Vnrf7b16eevC1.C6','botran2432@gmail.com','0987645122','USER','https://huanluyenchosieutoc.com/wp-content/uploads/2019/09/bang-bao-gia-huan-luyen-cho-Boo-3.jpg',_binary '','31 Hoàng sa, quận 2, tp, HCM');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -276,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-09 15:06:22
+-- Dump completed on 2022-10-25 23:25:05

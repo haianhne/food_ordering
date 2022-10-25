@@ -56,7 +56,7 @@
                   <li sec:authorize="isAnonymous()"><a th:href="@{login}">Login</a></li>
                   <li sec:authorize="isAnonymous()"><a th:href="@{user_register}">Register as User</a></li>
                   <li sec:authorize="isAnonymous()"><a th:href="@{res_register}">Register as Restaurant</a></li>
-                  <li sec:authorize="hasAuthority('USER')"><a href="#">Hello User</a></li>
+                  <li sec:authorize="hasAuthority('USER')"><a th:href="@{profile}">Hello User</a></li>
                   <li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{admin}">Admin Manager</a></li>
                   <li sec:authorize="hasAuthority('RESTAURANT')"><a th:href="@{restaurant}">Restaurant Manager</a></li>
                   <li sec:authorize="isAuthenticated()" th:action="@{/logout}" menthod="POST"><a th:href="@{logout}">Logout</a></li>
@@ -95,21 +95,21 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-     <div id="danhsachsanpham" class="danhsachsanpham py-5 bg-light">
+    <div id="danhsachsanpham" class="danhsachsanpham py-5 bg-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div th:each="food:${listFoods}" class="col-md-4">
                         <div class="card mb-4 shadow-sm">
                            <a th:href="@{food-details}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    th:src="@{images/menu/menu-item-6.png}">
+                                    th:src="@{${food.image}}">
                             </a>
                             <div class="card-body">
                                 <a th:href="@{food-details}">
-                                    <h5>Salad trộn tổng hợp</h5>
+                                    <h5 th:text="${food.name}">Food Name</h5>
                                 </a>
-                                <h6>Restaurant</h6>
-                                <p class="card-text">Tươi ngon, chất lượn</p>
+                                <h6 th:text="${food.decription}">Description</h6>
+                                <p class="card-text" th:text="${food.uploadTime}">Upload time</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a class="btn btn-sm btn-outline-secondary" th:href="@{food-details}">Xem
@@ -117,139 +117,7 @@
                                     </div>
                                     <small class="text-muted text-right">
                                         <s>80.000</s>
-                                        <b>49.000 VNĐ</b>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <a th:href="@{food-details}">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    th:src="@{images/menu/menu-item-5.png}">
-                            </a>
-                           <div class="card-body">
-                                <a th:href="@{food-details}">
-                                    <h5>Salad trộn tổng hợp</h5>
-                                </a>
-                                <h6>Restaurant</h6>
-                                <p class="card-text">Tươi ngon, chất lượn</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food-details}">Xem
-                                            chi tiết</a>
-                                    </div>
-                                    <small class="text-muted text-right">
-                                        <s>80.000</s>
-                                        <b>49.000 VNĐ</b>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                           <a th:href="@{food-details}">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                   th:src="@{images/menu/menu-item-4.png}">
-                            </a>
-                            <div class="card-body">
-                               <a th:href="@{food-details}">
-                                    <h5>Salad trộn tổng hợp</h5>
-                                </a>
-                                <h6>Restaurant</h6>
-                                <p class="card-text">Tươi ngon, chất lượn</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food-details}">Xem
-                                            chi tiết</a>
-                                    </div>
-                                    <small class="text-muted text-right">
-                                        <s>80.000</s>
-                                        <b>49.000 VNĐ</b>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                          <a th:href="@{food-details}">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    th:src="@{images/menu/menu-item-3.png}">
-                            </a>
-                            <div class="card-body">
-                                 <a th:href="@{food-details}">
-                                    <h5>Salad trộn tổng hợp</h5>
-                                </a>
-                                <h6>Restaurant</h6>
-                                <p class="card-text">Tươi ngon, chất lượn</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food-details}">Xem
-                                            chi tiết</a>
-                                    </div>
-                                    <small class="text-muted text-right">
-                                        <s>80.000</s>
-                                        <b>49.000 VNĐ</b>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <a th:href="@{food-details}">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    th:src="@{images/menu/menu-item-2.png}">
-                            </a>
-                            <div class="card-body">
-                                <a th:href="@{food-details}">
-                                    <h5>Salad trộn tổng hợp</h5>
-                                </a>
-                                <h6>Restaurant</h6>
-                                <p class="card-text">Tươi ngon, chất lượn</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food-details}">Xem
-                                            chi tiết</a>
-                                    </div>
-                                    <small class="text-muted text-right">
-                                        <s>80.000</s>
-                                        <b>49.000 VNĐ</b>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                           <a th:href="@{food-details}">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    th:src="@{images/menu/menu-item-1.png}">
-                            </a>
-                            <div class="card-body">
-                                <a th:href="@{food-details}">
-                                    <h5>Salad trộn tổng hợp</h5>
-                                </a>
-                                <h6>Restaurant</h6>
-                                <p class="card-text">Tươi ngon, chất lượng</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary" th:href="@{food-details}">Xem
-                                            chi tiết</a>
-                                    </div>
-                                    <small class="text-muted text-right">
-                                        <s>80.000</s>
-                                        <b>49.000 VNĐ</b>
+                                        <b th:text="${food.unitPrice}">49.000 VNĐ</b>
                                     </small>
                                 </div>
                             </div>
@@ -708,7 +576,7 @@
       </div>
     </section><!-- End Menu Section -->
 
-    <!-- ======= Testimonials Section ======= -->
+	<!--  
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -742,7 +610,7 @@
                   </div>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -766,7 +634,7 @@
                   </div>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -790,7 +658,7 @@
                   </div>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -814,14 +682,15 @@
                   </div>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
           </div>
           <div class="swiper-pagination"></div>
         </div>
 
       </div>
-    </section><!-- End Testimonials Section -->
+    </section> 
+    -->
 
     <!-- ======= Events Section ======= -->
     <section id="events" class="events">
