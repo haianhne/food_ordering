@@ -28,6 +28,11 @@ public class RegistrationController {
 		return "registration";
 	}
 	
+	@GetMapping("/forgotpass")
+	public String Forgot() {
+		return "forgot_pass";
+	}
+	
 	@PostMapping("/register")
 	public ModelAndView registerUser(@ModelAttribute User user) {
 		

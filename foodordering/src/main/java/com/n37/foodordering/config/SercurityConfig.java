@@ -64,7 +64,7 @@ public class SercurityConfig {
 	@Bean
 	public WebSecurityCustomizer webSecurityCustomizer() {
 		return (web) -> web.ignoring().antMatchers("/css/**","/fonts/**","/images/**","/js/**","/vendor/**","/scss/**",
-				"/registration","/res_registration","/fooddetails" );
+				"/registration","/res_registration","/fooddetails", "/forgotpass" );
 	}
 	
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
