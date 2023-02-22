@@ -1,5 +1,6 @@
 DEMO: https://drive.google.com/file/d/17wvyX-ZDVyp16LMQNBTnzH4dCIc5Jr0W/view
-Diploma Project in OU University of HCM city.
+# Diploma Project in OU University of HCM city.
+SCORE: 7.5/10
 Nguyen Duy Hai Anh (Coding)
 Huynh Gia Bao (Documents)
 
